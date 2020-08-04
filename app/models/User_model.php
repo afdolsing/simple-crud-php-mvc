@@ -7,6 +7,4 @@ class User_model{
     {
         return $this->nama;
     }
-
-
 }
