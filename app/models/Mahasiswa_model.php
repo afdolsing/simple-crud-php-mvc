@@ -28,7 +28,7 @@ class Mahasiswa_model{
     // }
 
     public function getMahasiswaById($id){
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id= :id');
         $this->db->bind('id',$id);
         return $this->db->single();
     }
@@ -43,8 +43,17 @@ class Mahasiswa_model{
         $this->db->bind('jurusan', $data['jurusan']);
 
         $this->db->execute();
-
+        // jika berhasil akan menghasilkan angkas satu
         return $this->db->rowCount();
         
+    }
+
+    public function hapusDataMahasiswa($id){
+        $query = "DELETE FROM  " . $this->table . " WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 }
