@@ -4,12 +4,28 @@
             <?php Flasher::flash() ?>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-lg-6">
             <button type="button" class="btn btn-success tombolTambahData" data-toggle="modal" data-target="#formModal">
                 Tambah Data Mahasiswa
             </button>
             <hr>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <form action="<?= BASE_URL ?>/mahasiswa/cari" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="cari mahasiswa.." name="keyword" id="keyword" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
             <h3>Daftar Mahasiswa</h3>
             <ul class="list-group">
                 <?php foreach ($data['mhs'] as $mahasiswa) : ?>
